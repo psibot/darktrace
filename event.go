@@ -52,7 +52,7 @@ func (c *Client) UnAcknowledgeEvent(parameters ...RequestParameter) error {
 	return err
 }
 
-func (c *Client) EventList(parameters ...RequestParameter) ([]Event, error) {
+func (c *Client) EventList(parameters ...RequestParameter) ([]interface{}, error) {
 	// Setup params
 	validParams := eventDetailsParams()
 	params, err := setupParams(parameters, validParams)
@@ -78,7 +78,7 @@ func (c *Client) EventList(parameters ...RequestParameter) ([]Event, error) {
 	}
 
 	// Unmarshal json body into structs and return
-	var events []Event
+	var events []interface{}
 	err = json.Unmarshal(responseData, &events)
 	return events, err
 }
