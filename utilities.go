@@ -2,24 +2,21 @@ package darktrace
 
 import "time"
 
-func UnixMicroSecondToTime(unixMS int) time.Time {
-	tUnixMicro := int64(unixMS)
-	tUnix := tUnixMicro / int64(time.Millisecond)
-	tUnixNanoRemainder := (tUnixMicro % int64(time.Millisecond)) * int64(time.Microsecond)
+func UnixMicroSecondToTime(unixMS int64) time.Time {
+	tUnix := unixMS / int64(time.Millisecond)
+	tUnixNanoRemainder := (unixMS % int64(time.Millisecond)) * int64(time.Microsecond)
 	return time.Unix(tUnix, tUnixNanoRemainder)
 }
 
-func UnixMilliSecondToTime(unixMS int) time.Time {
-	tUnixMilli := int64(unixMS)
-	tUnix := tUnixMilli / int64(time.Microsecond)
-	tUnixNanoRemainder := (tUnixMilli % int64(time.Microsecond)) * int64(time.Millisecond)
+func UnixMilliSecondToTime(unixMS int64) time.Time {
+	tUnix := unixMS / int64(time.Microsecond)
+	tUnixNanoRemainder := (unixMS % int64(time.Microsecond)) * int64(time.Millisecond)
 	return time.Unix(tUnix, tUnixNanoRemainder)
 }
 
-func UnixNanoSecondToTime(unixNS int) time.Time {
-	tUnixNano := int64(unixNS)
-	tUnix := tUnixNano / int64(time.Second)
-	tUnixNanoRemainder := tUnixNano % int64(time.Second)
+func UnixNanoSecondToTime(unixNS int64) time.Time {
+	tUnix := unixNS / int64(time.Second)
+	tUnixNanoRemainder := unixNS % int64(time.Second)
 	return time.Unix(tUnix, tUnixNanoRemainder)
 }
 
