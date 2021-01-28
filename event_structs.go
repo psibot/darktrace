@@ -22,28 +22,28 @@ type Event struct {
 
 type PolicyBreachEvent struct {
 	Pbid                 int64         `json:"pbid"`
-	Pid                  int           `json:"pid"`
-	Phid                 int           `json:"phid"`
+	Pid                  int64         `json:"pid"`
+	Phid                 int64         `json:"phid"`
 	CreationTime         int64         `json:"creationTime"`
 	CreationTimestamp    string        `json:"creationTimestamp"`
 	Name                 string        `json:"name"`
-	Components           []int         `json:"components"`
+	Components           []int64       `json:"components"`
 	DidRestrictions      []interface{} `json:"didRestrictions"`
 	DidExclusions        []interface{} `json:"didExclusions"`
-	Throttle             int           `json:"throttle"`
+	Throttle             int64         `json:"throttle"`
 	SharedEndpoints      bool          `json:"sharedEndpoints"`
-	Interval             int           `json:"interval"`
+	Interval             int64         `json:"interval"`
 	Sequenced            bool          `json:"sequenced"`
 	Active               bool          `json:"active"`
 	Retired              bool          `json:"retired"`
-	InstanceID           int           `json:"instanceID"`
+	InstanceID           int64         `json:"instanceID"`
 	Acknowledged         bool          `json:"acknowledged"`
 	State                string        `json:"state"`
 	Score                float64       `json:"score"`
-	CommentCount         int           `json:"commentCount"`
-	ComponentBreaches    []int         `json:"componentBreaches"`
+	CommentCount         int64         `json:"commentCount"`
+	ComponentBreaches    []int64       `json:"componentBreaches"`
 	ComponentBreachTimes []int64       `json:"componentBreachTimes"`
-	Devices              []int         `json:"devices"`
+	Devices              []int64       `json:"devices"`
 	DeviceLabels         []string      `json:"deviceLabels"`
 }
 
@@ -52,17 +52,17 @@ type NoticeEvent struct {
 	Info            string `json:"info"`
 	UID             string `json:"uid"`
 	Direction       string `json:"direction"`
-	Mlid            int    `json:"mlid"`
+	Mlid            int64  `json:"mlid"`
 	Type            string `json:"type"`
 	Dpcode          string `json:"dpcode"`
 	Dpcodetitle     string `json:"dpcodetitle"`
 	Msg             string `json:"msg"`
-	DestinationPort int    `json:"destinationPort"`
+	DestinationPort int64  `json:"destinationPort"`
 	Size            int64  `json:"size"`
 	Details         string `json:"details"`
 	SourceDevice    struct {
 		ID         int64  `json:"id"`
-		Did        int    `json:"did"`
+		Did        int64  `json:"did"`
 		Objecttype string `json:"objecttype"`
 		Macaddress string `json:"macaddress"`
 		IP         string `json:"ip"`
@@ -81,7 +81,7 @@ type NoticeEvent struct {
 	} `json:"sourceDevice"`
 	DestinationDevice struct {
 		ID         int64  `json:"id"`
-		Did        int    `json:"did"`
+		Did        int64  `json:"did"`
 		Objecttype string `json:"objecttype"`
 		Macaddress string `json:"macaddress"`
 		IP         string `json:"ip"`
@@ -106,26 +106,26 @@ type NoticeEvent struct {
 type ConnectionEvent struct {
 	Recentbytessincems  int64  `json:"recentbytessincems"`
 	Recentbytessince    string `json:"recentbytessince"`
-	Recentbytesout      int    `json:"recentbytesout"`
-	Recentbytesin       int    `json:"recentbytesin"`
+	Recentbytesout      int64  `json:"recentbytesout"`
+	Recentbytesin       int64  `json:"recentbytesin"`
 	Totalbytessincems   int64  `json:"totalbytessincems"`
 	Totalbytessince     string `json:"totalbytessince"`
-	Totalbytesout       int    `json:"totalbytesout"`
+	Totalbytesout       int64  `json:"totalbytesout"`
 	Totalbytesin        int64  `json:"totalbytesin"`
 	UID                 string `json:"uid"`
 	Status              string `json:"status"`
-	Sdid                int    `json:"sdid"`
-	Ddid                int    `json:"ddid"`
-	Port                int    `json:"port"`
-	SourcePort          int    `json:"sourcePort"`
-	DestinationPort     int    `json:"destinationPort"`
+	Sdid                int64  `json:"sdid"`
+	Ddid                int64  `json:"ddid"`
+	Port                int64  `json:"port"`
+	SourcePort          int64  `json:"sourcePort"`
+	DestinationPort     int64  `json:"destinationPort"`
 	Info                string `json:"info"`
 	Direction           string `json:"direction"`
 	Applicationprotocol string `json:"applicationprotocol"`
 	Protocol            string `json:"protocol"`
 	SourceDevice        struct {
 		ID         int64  `json:"id"`
-		Did        int    `json:"did"`
+		Did        int64  `json:"did"`
 		Objecttype string `json:"objecttype"`
 		Macaddress string `json:"macaddress"`
 		IP         string `json:"ip"`
@@ -144,7 +144,7 @@ type ConnectionEvent struct {
 	} `json:"sourceDevice"`
 	DestinationDevice struct {
 		ID         int64  `json:"id"`
-		Did        int    `json:"did"`
+		Did        int64  `json:"did"`
 		Objecttype string `json:"objecttype"`
 		Macaddress string `json:"macaddress"`
 		IP         string `json:"ip"`
