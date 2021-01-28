@@ -5,10 +5,12 @@ type Event struct {
 	Timems    int64  `json:"timems"`
 	Action    string `json:"action"`
 	EventType string `json:"eventType"`
+	EventPolicyBreach
+	EventNotice
+	EventConnection
 }
 
 type EventPolicyBreach struct {
-	Event
 	Pbid                 int64         `json:"pbid"`
 	Pid                  int           `json:"pid"`
 	Phid                 int           `json:"phid"`
@@ -36,7 +38,6 @@ type EventPolicyBreach struct {
 }
 
 type EventNotice struct {
-	Event
 	Nid             int64  `json:"nid"`
 	Info            string `json:"info"`
 	UID             string `json:"uid"`
@@ -93,7 +94,6 @@ type EventNotice struct {
 }
 
 type EventConnection struct {
-	Event
 	Recentbytessincems  int64  `json:"recentbytessincems"`
 	Recentbytessince    string `json:"recentbytessince"`
 	Recentbytesout      int    `json:"recentbytesout"`
