@@ -1,16 +1,26 @@
 package darktrace
 
+// EventType type of events
+type EventType string
+
+// Types of events that can be received.
+const (
+	EventTypePolicyBreach = EventType("policybreach")
+	EventTypeConnection   = EventType("connection")
+	EventTypeNotice       = EventType("notice")
+)
+
 type Event struct {
-	Time      string `json:"time"`
-	Timems    int64  `json:"timems"`
-	Action    string `json:"action"`
-	EventType string `json:"eventType"`
-	EventPolicyBreach
-	EventNotice
-	EventConnection
+	Time      string    `json:"time"`
+	Timems    int64     `json:"timems"`
+	Action    string    `json:"action"`
+	EventType EventType `json:"eventType"`
+	PolicyBreachEvent
+	NoticeEvent
+	ConnectionEvent
 }
 
-type EventPolicyBreach struct {
+type PolicyBreachEvent struct {
 	Pbid                 int64         `json:"pbid"`
 	Pid                  int           `json:"pid"`
 	Phid                 int           `json:"phid"`
@@ -37,7 +47,7 @@ type EventPolicyBreach struct {
 	DeviceLabels         []string      `json:"deviceLabels"`
 }
 
-type EventNotice struct {
+type NoticeEvent struct {
 	Nid             int64  `json:"nid"`
 	Info            string `json:"info"`
 	UID             string `json:"uid"`
@@ -93,7 +103,7 @@ type EventNotice struct {
 	Destination string `json:"destination"`
 }
 
-type EventConnection struct {
+type ConnectionEvent struct {
 	Recentbytessincems  int64  `json:"recentbytessincems"`
 	Recentbytessince    string `json:"recentbytessince"`
 	Recentbytesout      int    `json:"recentbytesout"`
